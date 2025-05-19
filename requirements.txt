@@ -1,4 +1,5 @@
 streamlit
+plotly
 gspread
 google-auth
 pandas
