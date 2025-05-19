@@ -27,6 +27,8 @@ if 'input_symbol' not in st.session_state:
     st.session_state.input_symbol = ''
 if 'dropdown_symbol' not in st.session_state:
     st.session_state.dropdown_symbol = tickers[0]
+if 'ticker_search' not in st.session_state:
+    st.session_state['ticker_search'] = None  
 
 # Callback functions
 def submit_input():
@@ -39,7 +41,6 @@ def select_dropdown():
     st.session_state.selected_symbol = st.session_state.dropdown_symbol
     st.session_state.input_symbol = ''  # Clear text input
     st.session_state['ticker_search'] = None  # Clear search box
-:contentReference[oaicite:6]{index=6}
 
 # Text input for custom symbol
 st.text_input("Enter NSE symbol (e.g., TCS):", key='input_symbol', on_change=submit_input)
