@@ -13,7 +13,7 @@ client = gspread.authorize(creds)
 
 # Open your sheet
 sheet = client.open("Pydroid 3 Projects")
-data_sheet = sheet.worksheet("Data")
+data_sheet = sheet.worksheet("INDATA")
 
 st.title("📈 NSE Stock Analysis")
 
@@ -32,9 +32,14 @@ if 'dropdown_symbol' not in st.session_state:
 def submit_input():
     st.session_state.selected_symbol = st.session_state.input_symbol.strip().upper()
     st.session_state.input_symbol = ''
+    st.session_state['ticker_search'] = None  # Clear search box
+    st.session_state.dropdown_symbol = tickers[0]  # Reset dropdown
 
 def select_dropdown():
     st.session_state.selected_symbol = st.session_state.dropdown_symbol
+    st.session_state.input_symbol = ''  # Clear text input
+    st.session_state['ticker_search'] = None  # Clear search box
+:contentReference[oaicite:6]{index=6}
 
 # Text input for custom symbol
 st.text_input("Enter NSE symbol (e.g., TCS):", key='input_symbol', on_change=submit_input)
